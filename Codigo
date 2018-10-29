@@ -1,0 +1,82 @@
+int boton1 = 2;
+int boton2 = 3;
+int boton3 = 4;
+int rojo1 = 5;
+int azul2 = 6;
+int verde3 = 7;
+int estado1;
+int estado2;
+int estado3;
+
+void setup(){
+  pinMode(boton1, INPUT_PULLUP);
+  pinMode(boton2, INPUT_PULLUP);
+  pinMode(boton3, INPUT_PULLUP);
+  pinMode(rojo1, OUTPUT);
+  pinMode(azul2, OUTPUT);
+  pinMode(verde3, OUTPUT);
+  Serial.begin(9600);
+  
+}
+
+void loop(){
+  estado1 = digitalRead(boton1);
+ 
+  estado2 = digitalRead(boton2);
+  
+  estado3 = digitalRead(boton3);
+  
+  if (estado1 == 0 && estado2 == 1 && estado3 == 1){ 
+    digitalWrite(rojo1, HIGH);
+    delay(500);
+    digitalWrite(rojo1, LOW);
+    delay(500);
+  }
+    
+  if (estado1 == 1 && estado2 == 0 && estado3 == 1){ 
+    digitalWrite(azul2, HIGH);
+    delay(500);
+    digitalWrite(azul2, LOW);
+    delay(500);
+  }
+  if (estado1 == 1 && estado2 == 1 && estado3 == 0){
+    digitalWrite(verde3, HIGH);
+    delay(500);
+    digitalWrite(verde3, LOW);
+    delay(500);
+  }
+ if (estado1 == 1 && estado2 == 1 && estado3 == 1){
+    digitalWrite(rojo1, HIGH);
+    digitalWrite(azul2, HIGH);
+    digitalWrite(verde3, HIGH);
+    delay(500);
+    digitalWrite(rojo1, LOW);
+    digitalWrite(azul2, LOW);
+    digitalWrite(verde3, LOW);
+    delay(500);
+ }
+   if (estado1 == 1 && estado2 == 0 && estado3 == 0){
+    digitalWrite(azul2, HIGH);
+    digitalWrite(verde3, HIGH);
+    delay(500);
+    digitalWrite(azul2, LOW);
+    digitalWrite(verde3, LOW);
+    delay(500);
+ }
+   if (estado1 == 0 && estado2 == 0 && estado3 == 1){
+    digitalWrite(rojo1, HIGH);
+    digitalWrite(azul2, HIGH);
+    delay(500);
+    digitalWrite(rojo1, LOW);
+    digitalWrite(azul2, LOW);
+    delay(500);
+ }
+   if (estado1 == 0 && estado2 == 1 && estado3 == 0){
+    digitalWrite(rojo1, HIGH);
+    digitalWrite(verde3, HIGH);
+    delay(500);
+    digitalWrite(rojo1, LOW);
+    digitalWrite(verde3, LOW);
+    delay(500);
+ }
+}
